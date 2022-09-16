@@ -1,0 +1,15 @@
+# Build results
+[Oo]bj/
+[Bb]in/
+x64/
+[Dd]ebug/
+[Rr]elease/
+
+*.Publish.xml
+*.pubxml
+
+# Packages
+packages/
+
+# IDE
+.vscode
