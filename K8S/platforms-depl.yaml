@@ -15,6 +15,12 @@ spec:
       containers:
         - name: platformservice
           image: jhoyos1/platformservice:latest
+          env:
+          - name: CONN_STRING
+            valueFrom:
+              secretKeyRef:
+                name: connstring
+                key: CONN_STRING
 ---
 apiVersion: v1
 kind: Service
