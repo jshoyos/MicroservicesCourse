@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2Wh5ZMLUBU75j1XKiHChvuIZO4kGX2p3me7rZo69RTJF41PsvjIoiNxd5QD7c6QzyG3Qmj1Rz6dawImAVQj+LQ==",
+  "dgSpecHash": "2oeSNUd7jP9ju60Dl3wQaczy76u46HveSYWOm8VdtfH158PyFLtoVEEtatTXecxXvN7uQG3dqFmsnDcqg5CGpw==",
   "success": true,
   "projectFilePath": "D:\\Workspace\\MicroservicesCourse\\PlatformService\\PlatformService.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,7 @@
     "C:\\Users\\Hokage\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Hokage\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Hokage\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Hokage\\.nuget\\packages\\rabbitmq.client\\6.4.0\\rabbitmq.client.6.4.0.nupkg.sha512",
     "C:\\Users\\Hokage\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\Hokage\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\Hokage\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
@@ -77,6 +78,7 @@
     "C:\\Users\\Hokage\\.nuget\\packages\\system.text.encoding.codepages\\5.0.0\\system.text.encoding.codepages.5.0.0.nupkg.sha512",
     "C:\\Users\\Hokage\\.nuget\\packages\\system.text.encodings.web\\7.0.0-rc.1.22426.10\\system.text.encodings.web.7.0.0-rc.1.22426.10.nupkg.sha512",
     "C:\\Users\\Hokage\\.nuget\\packages\\system.text.json\\7.0.0-rc.1.22426.10\\system.text.json.7.0.0-rc.1.22426.10.nupkg.sha512",
+    "C:\\Users\\Hokage\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",
     "C:\\Users\\Hokage\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\Hokage\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Hokage\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"

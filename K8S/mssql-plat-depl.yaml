@@ -35,6 +35,7 @@ spec:
         persistentVolumeClaim:
           claimName: mssql-claim #comes from the local-pvc.yaml
 ---
+### cluster ip
 apiVersion: v1
 kind: Service
 metadata:
@@ -49,6 +50,7 @@ spec:
     port: 1433
     targetPort: 1433
 ---
+### load balancer
 apiVersion: v1
 kind: Service
 metadata:
