@@ -56,7 +56,7 @@ namespace CommandService.Controllers
 
             var commandReadDto = _mapper.Map<CommandReadDto>(command);
             return CreatedAtRoute(nameof(GetCommandForPlatform),
-            new {platformId = platformId, commanId = commandReadDto.Id}, commandReadDto);
+            new {platformId = platformId, commandId = commandReadDto.Id}, commandReadDto);
         }
 
         public CommandsController(ILogger<CommandsController> logger, ICommandRepo commandRepom, IMapper mapper)

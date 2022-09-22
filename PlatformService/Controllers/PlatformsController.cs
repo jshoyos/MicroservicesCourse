@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 using PlatformService.DTOs;
 using PlatformService.Models;
@@ -43,10 +44,25 @@ namespace PlatformService.Controllers
             _platformRepo.SaveChanges();
 
             var platformReadDto = _mapper.Map<PlatformReadDto>(platform);
+
+            // Send sync message
+            // This is just an exemple if we wanted to use an http request instead of a message broker aka RabbitMQ
             try {
                await _commandDataClient.SendPlatformToCommand(platformReadDto);
             }
             catch (Exception ex) {
+                _logger.LogError(ex, ex.Message);
+            }
+
+            // Send async message
+            try
+            {
+                var platformPublishedDto = _mapper.Map<PlatformPublishedDto>(platformReadDto);
+                platformPublishedDto.Event = "Platform_Published";
+                _messageBusClient.PublishNewPlatform(platformPublishedDto);
+            }
+            catch (Exception ex)
+            {
                 _logger.LogError(ex, ex.Message);
             }
             return CreatedAtRoute(nameof(GetPlatformById), new {Id = platformReadDto.Id}, platformReadDto);
@@ -55,17 +71,19 @@ namespace PlatformService.Controllers
         public PlatformsController(
             ILogger<PlatformsController> logger,
             IPlatformRepo platformRepo, IMapper mapper,
-            ICommandDataClient commandDataClient)
+            ICommandDataClient commandDataClient, IMessageBusClient messageBusClient)
         {
             _mapper = mapper;
             _platformRepo = platformRepo;
             _logger = logger;
             _commandDataClient = commandDataClient;
+            _messageBusClient = messageBusClient;
         }
 
         private readonly ILogger<PlatformsController> _logger;
         private readonly IPlatformRepo _platformRepo;
         private readonly IMapper _mapper;
         private readonly ICommandDataClient _commandDataClient;
+        private readonly IMessageBusClient _messageBusClient;
     }
 }
