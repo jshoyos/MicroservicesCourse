@@ -13,7 +13,7 @@ namespace PlatformService.AsyncDataServices
 
             if (_connection.IsOpen) 
             {
-                _logger.LogInformation("RabbitMQ connection opened sending message");
+                _logger.LogInformation("RabbitMQ connection open sending message");
                 // Send the message
                 SendMessage(message);
             }
