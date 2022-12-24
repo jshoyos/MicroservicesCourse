@@ -37,3 +37,6 @@ ingress-nginx-controller   1/1     1            1       71m
 ```
 # 3. K8S create secrets
 - `Kubectl create secret generic <secretName> --from-literal=<keyName>=<secretValue>`
+
+#3. K8s Restart deployment when image changes
+- `kubectl rollout restart deployment <deployment name>`

@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 using PlatformService.SyncDataServices.Http;
+using PlatformService.SyncDataServices.Grpc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
 builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
+builder.Services.AddGrpc();
 
 if (builder.Environment.IsProduction()) {
     System.Console.WriteLine("Using sql db");
@@ -37,10 +39,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.Logger.LogInformation($"Command service Endpoint {app.Configuration["commandService"]}");
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapGrpcService<GrpcPlatformService>();
+app.Map("/protos/platforms.proto", async context => {
+    await context.Response.WriteAsync(File.ReadAllText("Protos/platforms.proto"));
+});
 
 app.Run();
